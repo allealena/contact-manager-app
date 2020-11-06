@@ -1,0 +1,53 @@
+<form [formGroup]="form"
+    (ngSubmit)="onSubmit()">
+	<mat-dialog-content>
+	<mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select formControlName="avatar">
+            <mat-option
+                value="{{avatar}}"
+                *ngFor = "let avatar of avatars">
+                <mat-icon svgIcon="{{avatar}}" class="avatar"></mat-icon> <span>{{avatar}}</span>
+            </mat-option>
+        </mat-select>
+         <span
+        [ngClass]="{'has-error': form.get('avatar').invalid && form.get('avatar').touched}"
+        *ngIf="form.get('avatar').invalid && form.get('avatar').touched && form.get('avatar')['errors']['required']">This is required.</span>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput
+               formControlName="firstName">
+        <span
+        [ngClass]="{'has-error': form.get('firstName').invalid && form.get('firstName').touched}"
+        *ngIf="form.get('firstName').invalid && form.get('firstName').touched && form.get('firstName')['errors']['required']">This is required.</span>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput
+               formControlName="lastName">
+         <span
+        [ngClass]="{'has-error': form.get('lastName').invalid && form.get('lastName').touched}"
+        *ngIf="form.get('lastName').invalid && form.get('lastName').touched && form.get('lastName')['errors']['required']">This is required.</span>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Biography</mat-label>
+        <textarea matInput
+                  formControlName="bio"></textarea>
+        <span
+        [ngClass]="{'has-error': form.get('bio').invalid && form.get('bio').touched}"
+        *ngIf="form.get('bio').invalid && form.get('bio').touched && form.get('bio')['errors']['required']">This is required.</span>
+    </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button [mat-dialog-close]="true" 
+          cdkFocusInitial
+          type="submit"
+          [disabled]="form.invalid">Yes</button>
+</mat-dialog-actions>
+</form>
+

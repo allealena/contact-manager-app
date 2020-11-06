@@ -1,0 +1,19 @@
+<div class="message message-{{message.type}}"
+     *ngIf="message.text">
+         {{message.text}}
+</div>
+<app-add-note [user]="user"></app-add-note>
+<p *ngIf="!user.notes.length">No notes for {{user.name}}, yet</p>
+<div *ngIf="user.notes.length">
+    <mat-card 
+        *ngFor="let note of notes">
+    
+	    <mat-card-content>
+		    <h3>{{note.title}}</h3>
+		    <p>{{note.date | date: 'MM/dd/yyyy'}}</p>
+	    </mat-card-content>
+	    <mat-card-actions>
+		    <button mat-button (click)="removeNote(note)">Remove</button>
+	    </mat-card-actions>
+    </mat-card>
+</div>

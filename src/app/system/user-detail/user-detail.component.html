@@ -1,0 +1,13 @@
+<div *ngIf="user" class="container">
+    <mat-icon svgIcon="{{user.avatar}}" class="avatar"></mat-icon>
+    <p>{{user.name}}</p>
+
+    <mat-tab-group dynamicHeight mat-stretch-tabs>
+	    <mat-tab label="BIO"> {{user.bio}} </mat-tab>
+        <mat-tab label="NOTES">
+        	<app-notes 
+        	    [user]="user">        	    
+        	</app-notes>
+        </mat-tab>
+    </mat-tab-group>
+</div>

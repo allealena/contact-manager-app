@@ -1,0 +1,23 @@
+<header>Header</header>
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      	<div class="headline">
+      		<h1>Contacts</h1>
+      	</div>
+        <app-users></app-users>
+    </mat-sidenav>
+ 
+    <mat-sidenav-content>
+        <p>
+        	<mat-checkbox [(ngModel)]="opened">
+        		<div class="headline">
+        			<i class="material-icons" (click)="sidenav.toggle()">list</i>
+        		    <h1>Contact Manager</h1>
+        		</div>
+            </mat-checkbox>
+        </p>
+        <app-menu></app-menu>
+        <app-user-detail></app-user-detail>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<footer>Footer</footer>

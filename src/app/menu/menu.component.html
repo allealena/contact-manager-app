@@ -1,0 +1,30 @@
+
+        <div class="menu">
+            <button 
+                mat-fab 
+                color="accent"
+                class="btn-menu"
+                (click)="openMenu()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div class="btn-container" 
+                 [ngClass]="{'showBtn': !hiddenBtn}">
+                <button 
+                    class="icon"
+                    mat-mini-fab 
+                    matTooltip="Contact"
+                    matTooltipPosition="left"
+                    (click)="openBottomSheet()">
+                    <mat-icon>face</mat-icon>
+                </button>
+                <button 
+                    class="icon"
+                    mat-mini-fab 
+                    matTooltip="Clear all notes"
+                    matTooltipPosition="left"
+                    (click)="clearNotes()"
+                    >
+                    <mat-icon>clear_all</mat-icon>
+                </button>
+            </div>
+        </div>

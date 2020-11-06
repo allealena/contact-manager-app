@@ -1,0 +1,22 @@
+<mat-list>
+	<app-users-filter
+	    [users]="users"
+	    (onSearchUsers)="updateUsersList($event)">    	
+	</app-users-filter>
+	<mat-list-item *ngFor = "let user of displayedUsers">
+		<button 
+		    mat-raised-button
+		    (click) = "selectUser(user)"
+		    [ngClass]="{'selected': user === selected}"
+		    class="btn-user">
+		    <mat-icon svgIcon="{{user.avatar}}" class="avatar"></mat-icon>
+		    {{user.name}}</button>	
+	</mat-list-item>
+	<button 
+	    mat-fab color="primary"
+	    class="btn-add" 
+	    (click)="addUser()">
+
+        <mat-icon>add</mat-icon>
+        </button>
+</mat-list>
